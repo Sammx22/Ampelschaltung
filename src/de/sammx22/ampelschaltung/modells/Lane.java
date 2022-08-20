@@ -1,0 +1,127 @@
+package de.sammx22.ampelschaltung.modells;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import de.sammx22.ampelschaltung.modells.directions.Direction;
+import de.sammx22.ampelschaltung.modells.trafficLights.RightTurnTrafficLight;
+import de.sammx22.ampelschaltung.modells.trafficLights.TrafficLight;
+
+public class Lane{
+	
+	private List<TrafficLight> trafficlight = new ArrayList<TrafficLight>();
+	private List<Direction> dir = new ArrayList<Direction>();
+	private TrafficLight trafficLight = new TrafficLight("red");
+	private RightTurnTrafficLight rightTurnTrafficLight = new RightTurnTrafficLight("green");
+	public Lane() {
+		
+	}
+	public Lane(Direction dir) {
+		
+		this.dir.add(dir);
+		
+		if(dir.getRightTurnTrafficLight()) {
+			this.trafficlight.add(rightTurnTrafficLight);
+		}else {
+			this.trafficlight.add(trafficLight);
+		}
+		
+		
+	}
+	public Lane(Direction dir1, Direction dir2) {
+		
+		this.dir.add(dir1);
+		this.dir.add(dir2);
+
+		//if there are two same Directions
+		if(dir1.getDirection()!= dir2.getDirection()) {
+			if(dir1.getRightTurnTrafficLight()) {
+				trafficlight.add(rightTurnTrafficLight);
+				System.out.println("r");
+			}else {
+				trafficlight.add(trafficLight);
+			}
+			if(dir2.getRightTurnTrafficLight()) {
+				trafficlight.add(rightTurnTrafficLight);
+				System.out.println("r");
+			}else {
+				trafficlight.add(trafficLight);
+			}
+		}else {
+			if(dir1.getRightTurnTrafficLight()) {
+				trafficlight.add(rightTurnTrafficLight);
+				System.out.println("r");
+			}else {
+				trafficlight.add(trafficLight);
+			}
+		}
+		
+	}
+	public Lane(Direction dir1, Direction dir2, Direction dir3) {
+		
+		this.dir.add(dir1);
+		this.dir.add(dir2);
+		this.dir.add(dir3);
+	
+		//if there are two or three same Directions
+				if(dir1.getDirection()!= dir2.getDirection() && dir1.getDirection()!= dir3.getDirection() && dir2.getDirection()!= dir3.getDirection()) {
+					if(dir1.getRightTurnTrafficLight()) {
+						trafficlight.add(rightTurnTrafficLight);
+					}else {
+						trafficlight.add(trafficLight);
+					}
+					if(dir2.getRightTurnTrafficLight()) {
+						trafficlight.add(rightTurnTrafficLight);
+					}else {
+						trafficlight.add(trafficLight);
+					}
+				}else {
+					
+					if(dir1.getDirection()!= dir2.getDirection()) {
+						if(dir1.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+						if(dir2.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+					}else if(dir1.getDirection()!= dir3.getDirection()){
+						if(dir1.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+						if(dir3.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+					}else if(dir2.getDirection()!= dir3.getDirection()){
+						if(dir2.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+						if(dir3.getRightTurnTrafficLight()) {
+							trafficlight.add(rightTurnTrafficLight);
+						}else {
+							trafficlight.add(trafficLight);
+						}
+					}
+					
+					
+				}
+	}
+	
+	
+	public List<TrafficLight> getTrafficLight() {
+	return trafficlight;	
+	}
+	public List<Direction> getDirection() {
+	return dir;
+		
+	}
+}

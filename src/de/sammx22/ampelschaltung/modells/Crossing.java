@@ -2,23 +2,41 @@ package de.sammx22.ampelschaltung.modells;
 
 public class Crossing {
 	
-	String lanesx;
-	String lanesy;
-	Boolean leftTurnLane;
-	Boolean rightTurnLane;
+	private Street streetxp;
+	private Street streetxn;
+	private Street streetyp;
+	private Street streetyn;
 	
 	public Crossing() {
 		
 	}
 	
-	public Crossing(String lanesx, String lanesy) {
-		lanesx = this.lanesx;
-		lanesy = this.lanesy;
+	public Crossing(Street streetxp, Street streetxn, Street streetyp, Street streetyn) {
+		this.streetxp = streetxp;
+		this.streetxn = streetxn;
+		this.streetyp = streetyp;
+		this.streetyn = streetyn;
 	}
-	public Crossing(String lanesx, String lanesy, Boolean leftTurnLane, Boolean rightTurnLane) {
-		lanesx = this.lanesx;
-		lanesy = this.lanesy;
-		leftTurnLane = this.leftTurnLane;
-		rightTurnLane = this.rightTurnLane;
+	
+	public Street getStreetXP() {
+		return streetxp;
 	}
+	
+	public Street getStreetXN() {
+		return streetxn;
+	}
+	
+	public Street getStreetYP() {
+		return streetyp;
+	}
+	
+	public Street getStreetYN() {
+		return streetyn;
+	}
+	
+	@Override
+	public String toString(){
+		return streetxp.toString() + streetxn.toString() + streetyp.toString() + streetyn.toString();
+	}
+	
 }

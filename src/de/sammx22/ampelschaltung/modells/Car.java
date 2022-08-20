@@ -3,20 +3,16 @@ package de.sammx22.ampelschaltung.modells;
 public class Car {
 	
 	
-	int lenght;
-	int speed;
+	private Street destination;
 	
 	
-	
-	public Car() {
+	public Car(Street destination) {
+		destination = this.destination;
 		
 	}
-	public Car(int lenght) {
-		lenght = this.lenght;
-	}
-	public Car(int lenght, int speed) {
-		lenght = this.lenght;
-		speed = this.speed;
+	
+	public Street getDestination(){
+		return destination;
 	}
 	
 }
