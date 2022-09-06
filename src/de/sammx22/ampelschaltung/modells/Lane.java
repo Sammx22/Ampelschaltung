@@ -11,6 +11,7 @@ public class Lane{
 	
 	private List<TrafficLight> trafficlight = new ArrayList<TrafficLight>();
 	private List<Direction> dir = new ArrayList<Direction>();
+	private List<Car> cars = new ArrayList<Car>();
 	private TrafficLight trafficLight = new TrafficLight("red");
 	private RightTurnTrafficLight rightTurnTrafficLight = new RightTurnTrafficLight("green");
 	public Lane() {
@@ -122,6 +123,17 @@ public class Lane{
 	}
 	public List<Direction> getDirection() {
 	return dir;
-		
 	}
+	public void addCar(Car car, Lane destination) {
+		cars.add(car);
+		car.setLane(destination);
+	}
+	public List<Car> getCars(){
+		return cars;
+	}
+	public void removeCar(Car car) {
+		cars.remove(car);
+	}
+	
+	
 }

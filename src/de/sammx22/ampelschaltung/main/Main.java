@@ -1,5 +1,7 @@
 package de.sammx22.ampelschaltung.main;
 
+import de.sammx22.ampelschaltung.algorithm.GenerateCars;
+import de.sammx22.ampelschaltung.modells.Car;
 import de.sammx22.ampelschaltung.modells.Crossing;
 import de.sammx22.ampelschaltung.modells.Lane;
 import de.sammx22.ampelschaltung.modells.Street;
@@ -50,5 +52,11 @@ public class Main {
 		
 		Crossing c = new Crossing(streetXP, streetXN, streetYP, streetYN);
 		System.out.println(c.getStreetXN().getLanes().get(2).getTrafficLight().get(0).toString());
+		Car car = new Car();
+		GenerateCars.generateLane(c, car);
+		System.out.println(car.getLane());
+		
+	
+	
 	}
 }
