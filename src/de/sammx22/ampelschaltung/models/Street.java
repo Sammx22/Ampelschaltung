@@ -4,21 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Street {
-	Lane o;
-	Lane t;
+	private String orientation;
+
 	
 	List<Lane> lanes = new ArrayList<Lane>();
 	
 	
-	public Street() {
-		
+	
+	public Street(String orientation) {
+		this.orientation = orientation;
 	}
+	public void setOrientation(String orientation) {
+		this.orientation = orientation;
+	}
+	public String getOrientation() {
+		return orientation;
+	}
+	
 	public void addLane(Lane lane) {
-		
+		lane.setIndex(lanes.size());
 		lanes.add(lane);
+		
 	}
 	public List<Lane> getLanes() {
 		return lanes;
+	}
+	
+	public int laneSize() {
+		return lanes.size();
 	}
 	
 	@Override

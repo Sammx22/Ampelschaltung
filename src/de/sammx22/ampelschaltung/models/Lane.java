@@ -3,9 +3,9 @@ package de.sammx22.ampelschaltung.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.sammx22.ampelschaltung.modells.directions.Direction;
-import de.sammx22.ampelschaltung.modells.trafficLights.RightTurnTrafficLight;
-import de.sammx22.ampelschaltung.modells.trafficLights.TrafficLight;
+import de.sammx22.ampelschaltung.models.directions.Direction;
+import de.sammx22.ampelschaltung.models.trafficLights.RightTurnTrafficLight;
+import de.sammx22.ampelschaltung.models.trafficLights.TrafficLight;
 
 public class Lane{
 	
@@ -14,6 +14,7 @@ public class Lane{
 	private List<Car> cars = new ArrayList<Car>();
 	private TrafficLight trafficLight = new TrafficLight("red");
 	private RightTurnTrafficLight rightTurnTrafficLight = new RightTurnTrafficLight("green");
+	private int index;
 	public Lane() {
 		
 	}
@@ -133,6 +134,13 @@ public class Lane{
 	}
 	public void removeCar(Car car) {
 		cars.remove(car);
+	}
+	
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	public int getIndex() {
+		return index;
 	}
 	
 	

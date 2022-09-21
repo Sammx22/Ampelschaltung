@@ -131,68 +131,85 @@ public static void generateDest(Crossing c, Car car) {
 		final int ranDestXN = myRandom.nextInt(c.getStreetXP().getLanes().size());
 		final int ranDestYP = myRandom.nextInt(c.getStreetXP().getLanes().size());
 		final int ranDestYN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		System.out.println(ranDestXP + "," + ranDestXN + "," + ranDestYP + "," + ranDestYN);
 	
 		if (ran >= sprobabilityDest[3]) { 
 		
 			if(sprobabilityDest[3] ==sprobabilityXPDest) {
-				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
-				car.setStreet(c.getStreetXP());
+				car.setdest(c.getStreetXP());
+				
+				System.out.println("dxp3");
 			}else if(sprobabilityDest[3] ==sprobabilityXNDest) {
-				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
-				car.setStreet(c.getStreetXN());
-			}if(sprobabilityDest[3] ==sprobabilityYPDest) {
-				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
-				car.setStreet(c.getStreetYP());
+				car.setdest(c.getStreetXN());
+				
+				System.out.println("dxn3");
+			}else if(sprobabilityDest[3] ==sprobabilityYPDest) {
+				car.setdest(c.getStreetYP());
+				
+				System.out.println("dyp3");
 			}else {
-				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
-				car.setStreet(c.getStreetYN());
+				car.setdest(c.getStreetYN());
+				
+				System.out.println("dyn3");
 			}
 			
 			
 		}
 		else if (ran >= sprobabilityDest[2]) { 
 			if(sprobabilityDest[2] ==sprobabilityXPDest) {
-				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
-				car.setStreet(c.getStreetXP());
+				car.setdest(c.getStreetXP());
+				
+				System.out.println("dxp2");
 			}else if(sprobabilityDest[2] ==sprobabilityXNDest) {
-				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
-				car.setStreet(c.getStreetXN());
-			}if(sprobabilityDest[2] ==sprobabilityYPDest) {
-				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
-				car.setStreet(c.getStreetYP());
+				car.setdest(c.getStreetXN());
+				
+				System.out.println("dxn2");
+			}else if(sprobabilityDest[2] ==sprobabilityYPDest) {
+				car.setdest(c.getStreetYP());
+				
+				System.out.println("dyp2");
 			}else {
-				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
-				car.setStreet(c.getStreetYN());
+				car.setdest(c.getStreetYN());
+				
+				System.out.println("dyn2");
 			}
 		} 
 		else if (ran >= sprobabilityDest[1]) { 
 			if(sprobabilityDest[1] ==sprobabilityXPDest) {
-				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
-				car.setStreet(c.getStreetXP());
+				car.setdest(c.getStreetXP());
+				
+				System.out.println("dxp1");
 			}else if(sprobabilityDest[1] ==sprobabilityXNDest) {
-				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
-				car.setStreet(c.getStreetXN());
-			}if(sprobabilityDest[1] ==sprobabilityYPDest) {
-				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
-				car.setStreet(c.getStreetYP());
+				car.setdest(c.getStreetXN());
+			
+				System.out.println("dxn1");
+			}else if(sprobabilityDest[1] ==sprobabilityYPDest) {
+				car.setdest(c.getStreetYP());
+				
+				System.out.println("dyp1");
 			}else {
-				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
-				car.setStreet(c.getStreetYN());
+				car.setdest(c.getStreetYN());
+			
+				System.out.println("dyn1");
 			}
 		} 
 		else { 
 			if(sprobabilityDest[0] >=sprobabilityXPDest) {
-				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
-				car.setStreet(c.getStreetXP());
+				car.setdest(c.getStreetXP());
+			
+				System.out.println("dxp0");
 			}else if(sprobabilityDest[0] ==sprobabilityXNDest) {
-				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
-				car.setStreet(c.getStreetXN());
-			}if(sprobabilityDest[0] ==sprobabilityYPDest) {
-				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
-				car.setStreet(c.getStreetYP());
+				car.setdest(c.getStreetXN());
+			
+				System.out.println("dxn0");
+			}else if(sprobabilityDest[0] ==sprobabilityYPDest) {
+				car.setdest(c.getStreetYP());
+			
+				System.out.println("dyp0");
 			}else {
-				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
-				car.setStreet(c.getStreetYN());
+				car.setdest(c.getStreetYN());
+			
+				System.out.println("dyn0");
 			}
 		}
 		

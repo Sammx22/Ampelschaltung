@@ -1,4 +1,4 @@
-package de.sammx22.ampelschaltung.modells.trafficLights;
+package de.sammx22.ampelschaltung.models.trafficLights;
 
 public class RightTurnTrafficLight extends TrafficLight{
 private String status;
