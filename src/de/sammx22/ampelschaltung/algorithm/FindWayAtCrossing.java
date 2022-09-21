@@ -1,14 +1,14 @@
 package de.sammx22.ampelschaltung.algorithm;
 
-import de.sammx22.ampelschaltung.modells.Car;
-import de.sammx22.ampelschaltung.modells.Lane;
+import de.sammx22.ampelschaltung.models.Car;
+import de.sammx22.ampelschaltung.models.Lane;
 
 public class FindWayAtCrossing {
-	public static void changeLane(Lane lane, Lane destination, Car car) {
+	public static void changeLane(Lane destination, Car car) {
+		car.getLane().removeCar(car);
 		destination.addCar(car, destination);
-		lane.removeCar(car);
-		
 	}
+	
 	
 	
 }

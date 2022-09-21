@@ -5,9 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
-import de.sammx22.ampelschaltung.modells.Car;
-import de.sammx22.ampelschaltung.modells.Crossing;
-import de.sammx22.ampelschaltung.modells.Street;
+import de.sammx22.ampelschaltung.models.Car;
+import de.sammx22.ampelschaltung.models.Crossing;
+import de.sammx22.ampelschaltung.models.Street;
 
 public class GenerateCars {
 	
@@ -17,11 +17,24 @@ public class GenerateCars {
 	static int sprobabilityYNLane = 0;
 	static int[] sprobabilityLane = {sprobabilityXPLane, sprobabilityXNLane, sprobabilityYPLane, sprobabilityYNLane};
 	
-	public static void setProbabilityLane(int probabilityXPLane, int probabilityXNLocation,int probabilityYPLocation,int probabilityYNLocation) {
-		sprobabilityXPLane = probabilityXPLane;
+	static int sprobabilityXPDest = 75;
+	static int sprobabilityXNDest = 50;
+	static int sprobabilityYPDest = 25;
+	static int sprobabilityYNDest = 0;
+	static int[] sprobabilityDest = {sprobabilityXPDest, sprobabilityXNDest, sprobabilityYPDest, sprobabilityYNDest};
+	
+	public static void setProbabilityLane(int probabilityXPLocation, int probabilityXNLocation,int probabilityYPLocation,int probabilityYNLocation) {
+		sprobabilityXPLane = probabilityXPLocation;
 		sprobabilityXNLane = probabilityXNLocation;
 		sprobabilityYPLane = probabilityYPLocation;
 		sprobabilityYNLane = probabilityYNLocation;
+	}
+	
+	public static void setProbabilityDest(int probabilityXPDest, int probabilityXNDest,int probabilityYPDest,int probabilityYNDest) {
+		sprobabilityXPDest = probabilityXPDest;
+		sprobabilityXNDest = probabilityXNDest;
+		sprobabilityYPDest = probabilityYPDest;
+		sprobabilityYNDest = probabilityYNDest;
 	}
 	
 	
@@ -84,6 +97,70 @@ public class GenerateCars {
 				car.setLane(c.getStreetYP().getLanes().get(ranLaneYP));
 			}else {
 				car.setLane(c.getStreetYN().getLanes().get(ranLaneYN));
+			}
+		}
+		
+	}
+	
+	
+	
+public static void generateDest(Crossing c, Car car) {
+		
+		
+		Arrays.sort(sprobabilityDest);
+		
+		Random myRandom=new Random();  
+		final int ran = myRandom.nextInt(100);
+		final int ranDestXP = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		final int ranDestXN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		final int ranDestYP = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		final int ranDestYN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+	
+		if (ran >= sprobabilityDest[3]) { 
+		
+			if(sprobabilityDest[3] ==sprobabilityXPDest) {
+				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
+			}else if(sprobabilityDest[3] ==sprobabilityXNDest) {
+				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
+			}if(sprobabilityDest[3] ==sprobabilityYPDest) {
+				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
+			}else {
+				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
+			}
+			
+			
+		}
+		else if (ran >= sprobabilityDest[2]) { 
+			if(sprobabilityDest[2] ==sprobabilityXPDest) {
+				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
+			}else if(sprobabilityDest[2] ==sprobabilityXNDest) {
+				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
+			}if(sprobabilityDest[2] ==sprobabilityYPDest) {
+				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
+			}else {
+				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
+			}
+		} 
+		else if (ran >= sprobabilityDest[1]) { 
+			if(sprobabilityDest[1] ==sprobabilityXPDest) {
+				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
+			}else if(sprobabilityDest[1] ==sprobabilityXNDest) {
+				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
+			}if(sprobabilityDest[1] ==sprobabilityYPDest) {
+				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
+			}else {
+				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
+			}
+		} 
+		else { 
+			if(sprobabilityDest[0] >=sprobabilityXPDest) {
+				car.setLane(c.getStreetXP().getLanes().get(ranDestXP));
+			}else if(sprobabilityDest[0] ==sprobabilityXNDest) {
+				car.setLane(c.getStreetXN().getLanes().get(ranDestXN));
+			}if(sprobabilityDest[0] ==sprobabilityYPDest) {
+				car.setLane(c.getStreetYP().getLanes().get(ranDestYP));
+			}else {
+				car.setLane(c.getStreetYN().getLanes().get(ranDestYN));
 			}
 		}
 		

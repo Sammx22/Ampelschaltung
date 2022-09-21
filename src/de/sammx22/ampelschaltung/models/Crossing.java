@@ -1,4 +1,4 @@
-package de.sammx22.ampelschaltung.modells;
+package de.sammx22.ampelschaltung.models;
 
 public class Crossing {
 	
