@@ -4,6 +4,7 @@ public class Car {
 	
 	
 	private Street dest;
+	private Street street;
 	private Lane lane;
 	
 	public Car() {	
@@ -21,6 +22,14 @@ public class Car {
 	public Street getdest(){
 		return dest;
 	}
+	
+	public void setStreet(Street street){
+		this.street = street;
+	}
+	public Street getStreet(){
+		return street;
+	}
+	
 	public void setLane(Lane lane) {
 		this.lane = lane;
 	}
