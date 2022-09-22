@@ -17,11 +17,13 @@ public class Main {
 		final String finalleft = "left";
 		final String finalfront = "front";
 		final String finalright = "right";
+		final String finalback = "back";
 		
 		Direction left = new Direction(finalleft);
 		Direction rightWithLight = new Direction(finalright,true);
 		Direction right = new Direction(finalright);
 		Direction front = new Direction(finalfront);
+		Direction back = new Direction(finalback);
 		
 		Lane leftLaneXP = new Lane(left);
 		Lane leftLaneXN = new Lane(left);
@@ -35,20 +37,29 @@ public class Main {
 		Lane rightLaneXN = new Lane(rightWithLight);
 		Lane rightLaneYP = new Lane(right);
 		Lane rightLaneYN = new Lane(right);
+		Lane backLaneXP = new Lane(back);
+		Lane backLaneXN = new Lane(back);
+		Lane backLaneYP = new Lane(back);
+		Lane backLaneYN = new Lane(back);
 		
 		Street streetXP = new Street("XP");
+		streetXP.addLane(backLaneXP);
 		streetXP.addLane(leftLaneXP);
 		streetXP.addLane(frontLaneXP);
 		streetXP.addLane(rightLaneXP);
+		
 		Street streetXN = new Street("XN");
+		streetXN.addLane(backLaneXN);
 		streetXN.addLane(leftLaneXN);
 		streetXN.addLane(frontLaneXN);
 		streetXN.addLane(rightLaneXN);
 		Street streetYP = new Street("YP");
+		streetYP.addLane(backLaneYP);
 		streetYP.addLane(leftLaneYP);
 		streetYP.addLane(frontLaneYP);
 		streetYP.addLane(rightLaneYP);
 		Street streetYN = new Street("YN");
+		streetYN.addLane(backLaneYN);
 		streetYN.addLane(leftLaneYN);
 		streetYN.addLane(frontLaneYN);
 		streetYN.addLane(rightLaneYN);

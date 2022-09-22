@@ -47,10 +47,21 @@ public class GenerateCars {
 		
 		Random myRandom=new Random();  
 		final int ran = myRandom.nextInt(100);
-		final int ranLaneXP = myRandom.nextInt(c.getStreetXP().getLanes().size());
-		final int ranLaneXN = myRandom.nextInt(c.getStreetXP().getLanes().size());
-		final int ranLaneYP = myRandom.nextInt(c.getStreetXP().getLanes().size());
-		final int ranLaneYN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		int ranLaneXP = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		int ranLaneXN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		int ranLaneYP = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		int ranLaneYN = myRandom.nextInt(c.getStreetXP().getLanes().size());
+		
+		if(ranLaneXP == 0) {
+			ranLaneXP++;
+		}else if(ranLaneXN == 0) {
+			ranLaneXN++;
+		}else if(ranLaneYP == 0) {
+			ranLaneYP++;
+		}else if(ranLaneYN == 0) {
+			ranLaneYN++;
+		}
+		
 	
 		if (ran >= sprobabilityLane[3]) { 
 		
@@ -60,7 +71,7 @@ public class GenerateCars {
 			}else if(sprobabilityLane[3] ==sprobabilityXNLane) {
 				car.setLane(c.getStreetXN().getLanes().get(ranLaneXN));
 				car.setStreet(c.getStreetXN());
-			}if(sprobabilityLane[3] ==sprobabilityYPLane) {
+			}else if(sprobabilityLane[3] ==sprobabilityYPLane) {
 				car.setLane(c.getStreetYP().getLanes().get(ranLaneYP));
 				car.setStreet(c.getStreetYP());
 			}else {
@@ -77,7 +88,7 @@ public class GenerateCars {
 			}else if(sprobabilityLane[2] ==sprobabilityXNLane) {
 				car.setLane(c.getStreetXN().getLanes().get(ranLaneXN));
 				car.setStreet(c.getStreetXN());
-			}if(sprobabilityLane[2] ==sprobabilityYPLane) {
+			}else if(sprobabilityLane[2] ==sprobabilityYPLane) {
 				car.setLane(c.getStreetYP().getLanes().get(ranLaneYP));
 				car.setStreet(c.getStreetYP());
 			}else {
@@ -92,7 +103,7 @@ public class GenerateCars {
 			}else if(sprobabilityLane[1] ==sprobabilityXNLane) {
 				car.setLane(c.getStreetXN().getLanes().get(ranLaneXN));
 				car.setStreet(c.getStreetXN());
-			}if(sprobabilityLane[1] ==sprobabilityYPLane) {
+			}else if(sprobabilityLane[1] ==sprobabilityYPLane) {
 				car.setLane(c.getStreetYP().getLanes().get(ranLaneYP));
 				car.setStreet(c.getStreetYP());
 			}else {
@@ -107,7 +118,7 @@ public class GenerateCars {
 			}else if(sprobabilityLane[0] ==sprobabilityXNLane) {
 				car.setLane(c.getStreetXN().getLanes().get(ranLaneXN));
 				car.setStreet(c.getStreetXN());
-			}if(sprobabilityLane[0] ==sprobabilityYPLane) {
+			}else if(sprobabilityLane[0] ==sprobabilityYPLane) {
 				car.setLane(c.getStreetYP().getLanes().get(ranLaneYP));
 				car.setStreet(c.getStreetYP());
 			}else {
