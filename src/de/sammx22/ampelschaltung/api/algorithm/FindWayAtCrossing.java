@@ -1,13 +1,13 @@
-package de.sammx22.ampelschaltung.algorithm;
+package de.sammx22.ampelschaltung.api.algorithm;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import de.sammx22.ampelschaltung.models.Car;
-import de.sammx22.ampelschaltung.models.Lane;
-import de.sammx22.ampelschaltung.models.Street;
+import de.sammx22.ampelschaltung.api.models.Car;
+import de.sammx22.ampelschaltung.api.models.Lane;
+import de.sammx22.ampelschaltung.api.models.Street;
 
 public class FindWayAtCrossing {
 	private static void changeLane1(Lane destination, Car car) {

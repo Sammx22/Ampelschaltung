@@ -1,11 +1,11 @@
-package de.sammx22.ampelschaltung.models;
+package de.sammx22.ampelschaltung.api.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import de.sammx22.ampelschaltung.models.directions.Direction;
-import de.sammx22.ampelschaltung.models.trafficLights.RightTurnTrafficLight;
-import de.sammx22.ampelschaltung.models.trafficLights.TrafficLight;
+import de.sammx22.ampelschaltung.api.models.directions.Direction;
+import de.sammx22.ampelschaltung.api.models.trafficLights.RightTurnTrafficLight;
+import de.sammx22.ampelschaltung.api.models.trafficLights.TrafficLight;
 
 public class Lane{
 	

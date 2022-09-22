@@ -1,17 +1,19 @@
-package de.sammx22.ampelschaltung.main;
+package de.sammx22.ampelschaltung.api.main;
 
-import de.sammx22.ampelschaltung.algorithm.ChangeTrafficLight;
-import de.sammx22.ampelschaltung.algorithm.FindWayAtCrossing;
-import de.sammx22.ampelschaltung.algorithm.GenerateCars;
-import de.sammx22.ampelschaltung.models.Car;
-import de.sammx22.ampelschaltung.models.Crossing;
-import de.sammx22.ampelschaltung.models.Lane;
-import de.sammx22.ampelschaltung.models.Street;
-import de.sammx22.ampelschaltung.models.directions.Direction;
+import de.sammx22.ampelschaltung.api.algorithm.ChangeTrafficLight;
+import de.sammx22.ampelschaltung.api.algorithm.FindWayAtCrossing;
+import de.sammx22.ampelschaltung.api.algorithm.GenerateCars;
+import de.sammx22.ampelschaltung.api.models.Car;
+import de.sammx22.ampelschaltung.api.models.Crossing;
+import de.sammx22.ampelschaltung.api.models.Lane;
+import de.sammx22.ampelschaltung.api.models.Street;
+import de.sammx22.ampelschaltung.api.models.directions.Direction;
+import sas.View;
 
 public class Main {
 
 	public static void main(String[] args) {
+	
 		final String finalleft = "left";
 		final String finalfront = "front";
 		final String finalright = "right";

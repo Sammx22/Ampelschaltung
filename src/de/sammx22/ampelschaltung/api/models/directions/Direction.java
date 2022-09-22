@@ -1,4 +1,4 @@
-package de.sammx22.ampelschaltung.models.directions;
+package de.sammx22.ampelschaltung.api.models.directions;
 
 public class Direction {
 	private boolean rightTurnTrafficLight;

@@ -1,13 +1,13 @@
-package de.sammx22.ampelschaltung.algorithm;
+package de.sammx22.ampelschaltung.api.algorithm;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
-import de.sammx22.ampelschaltung.models.Car;
-import de.sammx22.ampelschaltung.models.Crossing;
-import de.sammx22.ampelschaltung.models.Street;
+import de.sammx22.ampelschaltung.api.models.Car;
+import de.sammx22.ampelschaltung.api.models.Crossing;
+import de.sammx22.ampelschaltung.api.models.Street;
 
 public class GenerateCars {
 	

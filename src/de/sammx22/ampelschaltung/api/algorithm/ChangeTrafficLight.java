@@ -1,6 +1,6 @@
-package de.sammx22.ampelschaltung.algorithm;
+package de.sammx22.ampelschaltung.api.algorithm;
 
-import de.sammx22.ampelschaltung.models.Crossing;
+import de.sammx22.ampelschaltung.api.models.Crossing;
 
 public class ChangeTrafficLight {
 	

@@ -1,13 +1,14 @@
-package de.sammx22.ampelschaltung.models.trafficLights;
+package de.sammx22.ampelschaltung.api.models.trafficLights;
 
-public class RightTurnTrafficLight extends TrafficLight{
-private String status;
+public class TrafficLight {
+	
+	private String status;
 	
 	
-	public RightTurnTrafficLight() {
+	public TrafficLight() {
 		
 	}
-	public RightTurnTrafficLight(String status) {
+	public TrafficLight(String status) {
 		this.status = status;
 	}
 	
@@ -18,12 +19,9 @@ private String status;
 	public String getStatus() {
 		return status;
 	}
-	
-	
 
 	@Override
 	public String toString(){
 		return "Status: "+status;
 	}
 }
-
