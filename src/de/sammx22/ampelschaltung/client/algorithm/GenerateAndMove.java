@@ -23,7 +23,11 @@ public class GenerateAndMove {
 			startLaneIndex++;
 		}
 		int destIndex;
+		boolean green;
 		
+		
+		
+		if(!car.getAtLine()) {
 		switch(car.getStreet().getOrientation()) {
 		case "YP":
 			System.out.println("yp"+car.getdest().getOrientation());
@@ -43,7 +47,7 @@ public class GenerateAndMove {
 				break;
 			}
 			
-			FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+			FindWayAtCrossing.changeLaneAtCrossing(car);
 			
 			destIndex=car.getLane().getIndex();
 			System.out.println("i"+startLaneIndex);
@@ -155,7 +159,7 @@ public class GenerateAndMove {
 			
 				break;
 			}
-			FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
 			System.out.println("i"+startLaneIndex);
 			System.out.println("l"+destIndex);
@@ -318,7 +322,7 @@ public class GenerateAndMove {
 			
 				break;
 			}
-			FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
 			System.out.println("i"+startLaneIndex);
 			System.out.println("l"+destIndex);
@@ -377,7 +381,7 @@ public class GenerateAndMove {
 				
 				case(0):
 					for(int i = 0; i<130; i++) {
-						carM.getCar().move(1,0);
+						carM.getCar().move(-1,0);
 						try {
 							TimeUnit.MILLISECONDS.sleep(10);
 						} catch (InterruptedException e) {
@@ -388,7 +392,7 @@ public class GenerateAndMove {
 					break;
 				case(1):
 					for(int i = 0; i<100; i++) {
-					carM.getCar().move(1.3,1);
+					carM.getCar().move(-1.3,1);
 					try {
 						TimeUnit.MILLISECONDS.sleep(10);
 					} catch (InterruptedException e) {
@@ -399,7 +403,7 @@ public class GenerateAndMove {
 					break;
 				case(2):
 					for(int i = 0; i<200; i++) {
-						carM.getCar().move(0.65,1);
+						carM.getCar().move(-0.65,1);
 						try {
 							TimeUnit.MILLISECONDS.sleep(10);
 						} catch (InterruptedException e) {
@@ -488,7 +492,7 @@ public class GenerateAndMove {
 			
 				break;
 			}
-			FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
 			System.out.println("i"+startLaneIndex);
 			System.out.println("l"+destIndex);
@@ -638,8 +642,8 @@ public class GenerateAndMove {
 			break;
 		}
 		
-		
-		
+		car.setAtLine(true);
+		}
 		
 		return car;
 		
@@ -698,5 +702,587 @@ public class GenerateAndMove {
 		
 		Crossing c = new Crossing(streetXP, streetXN, streetYP, streetYN);
 		return c;
+	}
+	
+	
+	
+	public static void turnLeft(CarModel carM, Car car) {
+		System.out.println("left");
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
+		switch(car.getStreet().getOrientation()) {
+		
+		//xp
+		case "XP":
+		for(int i = 0; i<100; i++) {
+		carM.getCar().move(-1.325, 0);
+		try {
+			TimeUnit.MILLISECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		for(int i = 0; i<90; i++) {
+			carM.getCar().turn(-1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		for(int i = 0; i<120; i++) {
+			carM.getCar().move(0, 4);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			carM.getCar().setHidden(true);
+		break;
+		
+		case "XN":
+			for(int i = 0; i<100; i++) {
+			carM.getCar().move(1.325, 0);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			for(int i = 0; i<90; i++) {
+				carM.getCar().turn(-1);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(0, -4);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				carM.getCar().setHidden(true);
+			break;
+		
+		case "YN":
+		//yn
+		for(int i = 0; i<100; i++) {
+			carM.getCar().move(0,-1.325);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			for(int i = 0; i<90; i++) {
+				carM.getCar().turn(-1);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(-4,0);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			carM.getCar().setHidden(true);
+			break;
+			
+		case "YP":
+			//yn
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(0,1.325);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(4,0);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				carM.getCar().setHidden(true);
+				break;
+		}
+	}
+	public static void turnFront(CarModel carM, Car car) {
+		System.out.println("front");
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
+		switch(car.getStreet().getOrientation()) {
+		
+		//xp
+		case "XP":
+		for(int i = 0; i<100; i++) {
+		carM.getCar().move(-4, -1);
+		try {
+			TimeUnit.MILLISECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		
+		for(int i = 0; i<120; i++) {
+			carM.getCar().move(-4,0);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			carM.getCar().setHidden(true);
+		break;
+		
+		case "XN":
+			for(int i = 0; i<100; i++) {
+			carM.getCar().move(4, 1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(4, 0);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				carM.getCar().setHidden(true);
+			break;
+		
+		case "YN":
+		//yn
+		for(int i = 0; i<100; i++) {
+			carM.getCar().move(1,-4);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(0,-4);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			carM.getCar().setHidden(true);
+			break;
+			
+		case "YP":
+			//yn
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(-1,4);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(0,4);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				carM.getCar().setHidden(true);
+				break;
+		}
+	}
+	public static void turnRight(CarModel carM, Car car) {
+		System.out.println("right");
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
+		switch(car.getStreet().getOrientation()) {
+		
+		//xp
+		case "XP":
+		for(int i = 0; i<100; i++) {
+		carM.getCar().move(-1.325, 0);
+		try {
+			TimeUnit.MILLISECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		for(int i = 0; i<90; i++) {
+			carM.getCar().turn(1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		for(int i = 0; i<120; i++) {
+			carM.getCar().move(0, -4);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			carM.getCar().setHidden(true);
+		break;
+		
+		case "XN":
+			for(int i = 0; i<100; i++) {
+			carM.getCar().move(1.325, 0);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			for(int i = 0; i<90; i++) {
+				carM.getCar().turn(1);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(0, 4);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				carM.getCar().setHidden(true);
+			break;
+		
+		case "YN":
+		//yn
+		for(int i = 0; i<100; i++) {
+			carM.getCar().move(0,-1.325);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			for(int i = 0; i<90; i++) {
+				carM.getCar().turn(1);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(4,0);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			carM.getCar().setHidden(true);
+			break;
+			
+		case "YP":
+			//yn
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(0,1.325);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(-4,0);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				carM.getCar().setHidden(true);
+				break;
+		}
+		
+		
+	}
+	public static void turnBack(CarModel carM, Car car) {
+		System.out.println("back");
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
+		switch(car.getStreet().getOrientation()) {
+		
+		//xp
+		case "XP":
+		for(int i = 0; i<100; i++) {
+		carM.getCar().move(-1.325, 0);
+		try {
+			TimeUnit.MILLISECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		for(int i = 0; i<90; i++) {
+			carM.getCar().turn(-1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		for(int i = 0; i<100; i++) {
+			carM.getCar().move(0, 1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		for(int i = 0; i<90; i++) {
+			carM.getCar().turn(-1);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		for(int i = 0; i<120; i++) {
+			carM.getCar().move(4, 0);
+			try {
+				TimeUnit.MILLISECONDS.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		
+			carM.getCar().setHidden(true);
+		break;
+		
+		case "XN":
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(1.325, 0);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<100; i++) {
+					carM.getCar().move(0, -1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(-4, 0);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				carM.getCar().setHidden(true);
+			break;
+		
+		case "YN":
+		//yn
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(0,-1.325);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<100; i++) {
+					carM.getCar().move(-1,0);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(0,4);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+			carM.getCar().setHidden(true);
+			break;
+			
+		case "YP":
+			//yn
+			for(int i = 0; i<100; i++) {
+				carM.getCar().move(0,1.325);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<100; i++) {
+					carM.getCar().move(1,0);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<90; i++) {
+					carM.getCar().turn(-1);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				for(int i = 0; i<120; i++) {
+					carM.getCar().move(0,-4);
+					try {
+						TimeUnit.MILLISECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					}
+				carM.getCar().setHidden(true);
+				break;
+		}
 	}
 }

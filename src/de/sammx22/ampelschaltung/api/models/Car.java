@@ -6,6 +6,7 @@ public class Car {
 	private Street dest;
 	private Street street;
 	private Lane lane;
+	private boolean atLine;
 	
 	public Car() {	
 		
@@ -21,6 +22,13 @@ public class Car {
 	}
 	public Street getdest(){
 		return dest;
+	}
+	
+	public void setAtLine(boolean atLine){
+		this.atLine = atLine;
+	}
+	public boolean getAtLine(){
+		return atLine;
 	}
 	
 	public void setStreet(Street street){

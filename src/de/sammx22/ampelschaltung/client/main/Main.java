@@ -18,6 +18,28 @@ public class Main {
 		Crossing c = GenerateAndMove.generateCrossing();
 		Car car = GenerateAndMove.generateCar(c, carM);
 		
+		while(car.getAtLine()) {
+			System.out.println("atline" + car.getLane().getDirection().get(0).getDirection());
+			switch(car.getLane().getDirection().get(0).getDirection()) {
+			case "left":
+				if(car.getStreet().getOrientation()==car.getdest().getOrientation()) {
+					GenerateAndMove.turnBack(carM, car);
+				}else {
+					GenerateAndMove.turnLeft(carM, car);
+				}
+				break;
+			case "front":
+				GenerateAndMove.turnFront(carM, car);
+				break;
+			case "right":
+				GenerateAndMove.turnRight(carM, car);
+				break;
+				
+			}
+			car.setAtLine(false);
+			System.out.println("setfalse");
+		}
+		
 	}
 
 }
