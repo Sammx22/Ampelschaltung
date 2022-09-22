@@ -131,26 +131,26 @@ public static void generateDest(Crossing c, Car car) {
 		final int ranDestXN = myRandom.nextInt(c.getStreetXP().getLanes().size());
 		final int ranDestYP = myRandom.nextInt(c.getStreetXP().getLanes().size());
 		final int ranDestYN = myRandom.nextInt(c.getStreetXP().getLanes().size());
-		System.out.println(ranDestXP + "," + ranDestXN + "," + ranDestYP + "," + ranDestYN);
+		//System.out.println(ranDestXP + "," + ranDestXN + "," + ranDestYP + "," + ranDestYN);
 	
 		if (ran >= sprobabilityDest[3]) { 
 		
 			if(sprobabilityDest[3] ==sprobabilityXPDest) {
 				car.setdest(c.getStreetXP());
 				
-				System.out.println("dxp3");
+				
 			}else if(sprobabilityDest[3] ==sprobabilityXNDest) {
 				car.setdest(c.getStreetXN());
 				
-				System.out.println("dxn3");
+				
 			}else if(sprobabilityDest[3] ==sprobabilityYPDest) {
 				car.setdest(c.getStreetYP());
 				
-				System.out.println("dyp3");
+			
 			}else {
 				car.setdest(c.getStreetYN());
 				
-				System.out.println("dyn3");
+				
 			}
 			
 			
@@ -159,57 +159,56 @@ public static void generateDest(Crossing c, Car car) {
 			if(sprobabilityDest[2] ==sprobabilityXPDest) {
 				car.setdest(c.getStreetXP());
 				
-				System.out.println("dxp2");
+				
 			}else if(sprobabilityDest[2] ==sprobabilityXNDest) {
 				car.setdest(c.getStreetXN());
 				
-				System.out.println("dxn2");
 			}else if(sprobabilityDest[2] ==sprobabilityYPDest) {
 				car.setdest(c.getStreetYP());
 				
-				System.out.println("dyp2");
+				
 			}else {
 				car.setdest(c.getStreetYN());
 				
-				System.out.println("dyn2");
+				
 			}
 		} 
 		else if (ran >= sprobabilityDest[1]) { 
 			if(sprobabilityDest[1] ==sprobabilityXPDest) {
 				car.setdest(c.getStreetXP());
 				
-				System.out.println("dxp1");
+				
 			}else if(sprobabilityDest[1] ==sprobabilityXNDest) {
 				car.setdest(c.getStreetXN());
 			
-				System.out.println("dxn1");
+				
 			}else if(sprobabilityDest[1] ==sprobabilityYPDest) {
 				car.setdest(c.getStreetYP());
 				
-				System.out.println("dyp1");
+				
 			}else {
 				car.setdest(c.getStreetYN());
 			
-				System.out.println("dyn1");
+			
 			}
 		} 
 		else { 
 			if(sprobabilityDest[0] >=sprobabilityXPDest) {
 				car.setdest(c.getStreetXP());
 			
-				System.out.println("dxp0");
+			
 			}else if(sprobabilityDest[0] ==sprobabilityXNDest) {
 				car.setdest(c.getStreetXN());
 			
-				System.out.println("dxn0");
+			
 			}else if(sprobabilityDest[0] ==sprobabilityYPDest) {
 				car.setdest(c.getStreetYP());
 			
-				System.out.println("dyp0");
+			
 			}else {
 				car.setdest(c.getStreetYN());
 			
-				System.out.println("dyn0");
+			
 			}
 		}
 		

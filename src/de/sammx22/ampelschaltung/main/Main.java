@@ -51,18 +51,19 @@ public class Main {
 		streetYN.addLane(rightLaneYN);
 		
 		Crossing c = new Crossing(streetXP, streetXN, streetYP, streetYN);
-		System.out.println(c.getStreetXN().getLanes().get(1).getTrafficLight().get(0).toString());
-		System.out.println(c.getStreetXN().getLanes().get(2).getIndex());
+		//System.out.println(c.getStreetXN().getLanes().get(1).getTrafficLight().get(0).toString());
+		//System.out.println(c.getStreetXN().getLanes().get(2).getIndex());
 		Car car = new Car();
 		GenerateCars.generateLane(c, car);
-		System.out.println("lane"+car.getLane());
-		System.out.println("street"+car.getStreet().getOrientation());
+		//System.out.println("lane"+car.getLane());
+		//System.out.println("street"+car.getStreet().getOrientation());
 		GenerateCars.generateDest(c, car);
-		System.out.println("dest"+car.getdest().getOrientation());
-		FindWayAtCrossing.changeLaneAtCrossing(car);
-		System.out.println("end"+car.getLane().getDirection().get(0).getDirection());
+		//System.out.println("dest"+car.getdest().getOrientation());
+		
+		//System.out.println("start"+car.getLane().getDirection().get(0).getDirection());
 		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
-		System.out.println("end"+car.getStreet().getOrientation());
+		//System.out.println("end"+car.getLane().getDirection().get(0).getDirection());
+		//System.out.println("end"+car.getStreet().getOrientation());
 		
 		
 		

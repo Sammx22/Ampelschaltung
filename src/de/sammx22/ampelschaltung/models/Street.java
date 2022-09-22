@@ -22,6 +22,7 @@ public class Street {
 	}
 	
 	public void addLane(Lane lane) {
+		//System.out.println("Index"+lanes.size());
 		lane.setIndex(lanes.size());
 		lanes.add(lane);
 		
