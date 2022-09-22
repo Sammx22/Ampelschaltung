@@ -11,38 +11,38 @@ import de.sammx22.ampelschaltung.models.Street;
 
 public class FindWayAtCrossing {
 	private static void changeLane1(Lane destination, Car car) {
-		System.out.println("test"+ destination.getDirection().get(0).getDirection());
+		//System.out.println("test"+ destination.getDirection().get(0).getDirection());
 		car.getLane().removeCar(car);
 		destination.addCar(car, destination);
 		
 	}
 	private static void changeLane(Lane destination, Car car) {
-		System.out.println("test"+car.getLane().getDirection().toString());
+		//System.out.println("test"+car.getLane().getDirection().toString());
 		int size = car.getStreet().getLanes().size();
 		int laneIndex = car.getLane().getIndex();
 		int destIndex = destination.getIndex();
-		System.out.println("laneIndex"+laneIndex);
-		System.out.println("destIndex"+destIndex);
+		//System.out.println("laneIndex"+laneIndex);
+		//System.out.println("destIndex"+destIndex);
 		if(laneIndex<destIndex) {
-			System.out.println("p");
+			//System.out.println("p");
 		for(int i = laneIndex+1; i<=destIndex;i++) {
 			
 			changeLane1(car.getStreet().getLanes().get(i),car);
-			System.out.println("dirp"+car.getLane().getIndex());
+			//System.out.println("dirp"+car.getLane().getIndex());
 		}
 		}else if(laneIndex>destIndex) {
-			System.out.println("n");
+			//System.out.println("n");
 			for(int i = laneIndex-1; i>=destIndex;i--) {
 				
 				changeLane1(car.getStreet().getLanes().get(i),car);
-				System.out.println("dirn"+car.getLane().getIndex());
+				//System.out.println("dirn"+car.getLane().getIndex());
 				
 			}
 		}else {
-			System.out.println("e");
+			//System.out.println("e");
 			
 			changeLane1(car.getStreet().getLanes().get(laneIndex),car);
-			System.out.println("dirn"+car.getLane().getIndex());
+			//System.out.println("dirn"+car.getLane().getIndex());
 		}
 	}	
 	public static void changeLaneAtCrossing(Car car) {
@@ -245,7 +245,14 @@ public class FindWayAtCrossing {
 	
 	public static void changeStreetAtCrossing(Car car, Street destination) {
 		changeLaneAtCrossing(car);
+		if(car.getLane().getTrafficLight().get(0).getStatus()=="green") {
+			System.out.println("green");
 		car.setStreet(destination);
+		}else if(car.getLane().getTrafficLight().get(0).getStatus()=="red") {
+			System.out.println("red");
+		}else {
+			System.out.println("null");
+		}
 	}
 	
 }

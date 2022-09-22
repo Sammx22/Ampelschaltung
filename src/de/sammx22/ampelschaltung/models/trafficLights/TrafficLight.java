@@ -14,7 +14,7 @@ public class TrafficLight {
 	
 	
 	public void setStatus(String status) {
-		status = this.status;
+		this.status = status;
 	}
 	public String getStatus() {
 		return status;

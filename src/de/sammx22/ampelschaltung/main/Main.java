@@ -1,5 +1,6 @@
 package de.sammx22.ampelschaltung.main;
 
+import de.sammx22.ampelschaltung.algorithm.ChangeTrafficLight;
 import de.sammx22.ampelschaltung.algorithm.FindWayAtCrossing;
 import de.sammx22.ampelschaltung.algorithm.GenerateCars;
 import de.sammx22.ampelschaltung.models.Car;
@@ -56,14 +57,23 @@ public class Main {
 		Car car = new Car();
 		GenerateCars.generateLane(c, car);
 		//System.out.println("lane"+car.getLane());
-		//System.out.println("street"+car.getStreet().getOrientation());
+		System.out.println("street"+car.getStreet().getOrientation());
 		GenerateCars.generateDest(c, car);
-		//System.out.println("dest"+car.getdest().getOrientation());
+		System.out.println("dest"+car.getdest().getOrientation());
 		
-		//System.out.println("start"+car.getLane().getDirection().get(0).getDirection());
+		System.out.println("start"+car.getLane().getDirection().get(0).getDirection());
+		ChangeTrafficLight.toggleTrafficLightsXY(c);
 		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
-		//System.out.println("end"+car.getLane().getDirection().get(0).getDirection());
-		//System.out.println("end"+car.getStreet().getOrientation());
+		System.out.println("end"+car.getLane().getDirection().get(0).getDirection());
+		System.out.println("end"+car.getStreet().getOrientation());
+		
+		System.out.println("dest"+car.getdest().getOrientation());
+		System.out.println("start"+car.getLane().getDirection().get(0).getDirection());
+		ChangeTrafficLight.toggleTrafficLightsXY(c);
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		System.out.println("end"+car.getLane().getDirection().get(0).getDirection());
+		System.out.println("end"+car.getStreet().getOrientation());
+		
 		
 		
 		
