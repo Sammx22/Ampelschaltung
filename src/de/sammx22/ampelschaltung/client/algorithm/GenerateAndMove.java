@@ -2,6 +2,7 @@ package de.sammx22.ampelschaltung.client.algorithm;
 
 import sas.*;
 
+import java.awt.Color;
 import java.util.concurrent.TimeUnit;
 
 import de.sammx22.ampelschaltung.api.algorithm.FindWayAtCrossing;
@@ -12,6 +13,7 @@ import de.sammx22.ampelschaltung.api.models.Lane;
 import de.sammx22.ampelschaltung.api.models.Street;
 import de.sammx22.ampelschaltung.api.models.directions.Direction;
 import de.sammx22.ampelschaltung.client.models.CarModel;
+import de.sammx22.ampelschaltung.client.models.TrafficLightModel;
 
 public class GenerateAndMove {
 	public static Car generateCar(Crossing c, CarModel carM) {
@@ -1285,4 +1287,30 @@ public class GenerateAndMove {
 				break;
 		}
 	}
+
+	public static void setTrafficLight(Crossing c,TrafficLightModel tLM) {
+		
+		if(c.getStreetXP().getLanes().get(2).getTrafficLight().get(0).getStatus() == "green") {
+		tLM.getXP().setColor(Color.green);
+		}else {
+			tLM.getXP().setColor(Color.red);
+		}
+		if(c.getStreetXN().getLanes().get(2).getTrafficLight().get(0).getStatus() == "green") {
+			tLM.getXN().setColor(Color.green);
+			}else {
+				tLM.getXN().setColor(Color.red);
+			}
+		if(c.getStreetYP().getLanes().get(2).getTrafficLight().get(0).getStatus() == "green") {
+			tLM.getYP().setColor(Color.green);
+			}else {
+				tLM.getYP().setColor(Color.red);
+			}
+		if(c.getStreetYN().getLanes().get(2).getTrafficLight().get(0).getStatus() == "green") {
+			tLM.getYN().setColor(Color.green);
+			}else {
+				tLM.getYN().setColor(Color.red);
+			}
+	}
+
+
 }
