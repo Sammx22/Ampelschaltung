@@ -841,10 +841,11 @@ public class GenerateAndMove {
 				carM.getCar().setHidden(true);
 				break;
 		}
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 	}
 	public static void turnFront(CarModel carM, Car car) {
 		System.out.println("front");
-		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
 		
 		switch(car.getStreet().getOrientation()) {
 		
@@ -943,10 +944,11 @@ public class GenerateAndMove {
 				carM.getCar().setHidden(true);
 				break;
 		}
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 	}
 	public static void turnRight(CarModel carM, Car car) {
 		System.out.println("right");
-		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
 		
 		switch(car.getStreet().getOrientation()) {
 		
@@ -1077,12 +1079,12 @@ public class GenerateAndMove {
 				carM.getCar().setHidden(true);
 				break;
 		}
-		
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 		
 	}
 	public static void turnBack(CarModel carM, Car car) {
 		System.out.println("back");
-		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+		
 		
 		switch(car.getStreet().getOrientation()) {
 		
@@ -1286,6 +1288,7 @@ public class GenerateAndMove {
 				carM.getCar().setHidden(true);
 				break;
 		}
+		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 	}
 
 	public static void setTrafficLight(Crossing c,TrafficLightModel tLM) {
