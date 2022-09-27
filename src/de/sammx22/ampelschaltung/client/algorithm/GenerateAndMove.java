@@ -32,7 +32,7 @@ public class GenerateAndMove {
 		if(!car.getAtLine()) {
 		switch(car.getStreet().getOrientation()) {
 		case "YP":
-			System.out.println("yp"+car.getdest().getOrientation());
+			
 			
 			
 			switch(car.getLane().getIndex()) {
@@ -52,8 +52,8 @@ public class GenerateAndMove {
 			FindWayAtCrossing.changeLaneAtCrossing(car);
 			
 			destIndex=car.getLane().getIndex();
-			System.out.println("i"+startLaneIndex);
-			System.out.println("l"+destIndex);
+			 
+			
 			
 			try {
 				TimeUnit.SECONDS.sleep(3);
@@ -143,7 +143,7 @@ public class GenerateAndMove {
 			}
 			break;
 		case "YN":
-			System.out.println("yn"+car.getdest().getOrientation());
+			
 			carM.getCar().move(-100, 830);
 			
 			
@@ -163,8 +163,8 @@ public class GenerateAndMove {
 			}
 			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
-			System.out.println("i"+startLaneIndex);
-			System.out.println("l"+destIndex);
+			 
+			
 			
 			try {
 				TimeUnit.SECONDS.sleep(3);
@@ -307,7 +307,7 @@ public class GenerateAndMove {
 			break;
 			
 		case "XP":
-			System.out.println("xp"+car.getdest().getOrientation());
+			
 			carM.getCar().turn(90);
 			carM.getCar().move(362.5, 470);
 			
@@ -326,8 +326,7 @@ public class GenerateAndMove {
 			}
 			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
-			System.out.println("i"+startLaneIndex);
-			System.out.println("l"+destIndex);
+			
 			
 			
 			try {
@@ -476,7 +475,7 @@ public class GenerateAndMove {
 			*/
 			break;
 		case "XN":
-			System.out.println("xn"+car.getdest().getOrientation());
+			
 			carM.getCar().turn(90);
 			carM.getCar().move(-465, 370);
 			
@@ -496,8 +495,7 @@ public class GenerateAndMove {
 			}
 			FindWayAtCrossing.changeLaneAtCrossing(car);
 			destIndex=car.getLane().getIndex();
-			System.out.println("i"+startLaneIndex);
-			System.out.println("l"+destIndex);
+	
 			
 			
 			
@@ -709,8 +707,8 @@ public class GenerateAndMove {
 	
 	
 	public static void turnLeft(CarModel carM, Car car) {
-		System.out.println("left");
-		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
+	
+		
 		
 		switch(car.getStreet().getOrientation()) {
 		
@@ -845,7 +843,7 @@ public class GenerateAndMove {
 		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 	}
 	public static void turnFront(CarModel carM, Car car) {
-		System.out.println("front");
+		
 		
 		
 		switch(car.getStreet().getOrientation()) {
@@ -948,7 +946,7 @@ public class GenerateAndMove {
 		FindWayAtCrossing.changeStreetAtCrossing(car, car.getdest());
 	}
 	public static void turnRight(CarModel carM, Car car) {
-		System.out.println("right");
+		
 		
 		
 		switch(car.getStreet().getOrientation()) {
@@ -1084,7 +1082,7 @@ public class GenerateAndMove {
 		
 	}
 	public static void turnBack(CarModel carM, Car car) {
-		System.out.println("back");
+		
 		
 		
 		switch(car.getStreet().getOrientation()) {

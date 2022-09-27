@@ -26,17 +26,17 @@ public class TrafficlightThread extends Thread{
 	public void run() {
 		// TODO Auto-generated method stub
 		
-		while(true) {
-			System.out.println("run");
-			ChangeTrafficLight.toggleTrafficLightsXY(tc);
-			GenerateAndMove.setTrafficLight(tc, ttLM);
-			try {
-				TimeUnit.SECONDS.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		 }
+			   while (!interrupted()) {
+				 
+					ChangeTrafficLight.toggleTrafficLightsXY(tc);
+					GenerateAndMove.setTrafficLight(tc, ttLM);
+					try {
+						TimeUnit.SECONDS.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			  }
+		
 	}
 }

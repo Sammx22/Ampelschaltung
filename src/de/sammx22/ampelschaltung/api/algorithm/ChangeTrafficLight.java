@@ -21,7 +21,7 @@ public class ChangeTrafficLight {
 				c.getStreetYN().getLanes().get(i).getTrafficLight().get(0).setStatus("green");
 			}
 		}else {
-			System.out.println("xpelse");
+	
 			for(int i = 0; i<c.getStreetXP().getLanes().size(); i++) {
 				c.getStreetXP().getLanes().get(i).getTrafficLight().get(0).setStatus("green");
 			}

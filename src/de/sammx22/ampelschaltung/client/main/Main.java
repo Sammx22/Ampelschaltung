@@ -10,6 +10,7 @@ import de.sammx22.ampelschaltung.client.algorithm.GenerateAndMove;
 import de.sammx22.ampelschaltung.client.models.CarModel;
 import de.sammx22.ampelschaltung.client.models.CrossingModel;
 import de.sammx22.ampelschaltung.client.models.TrafficLightModel;
+import de.sammx22.ampelschaltung.client.threats.ChangeStreetThread;
 import de.sammx22.ampelschaltung.client.threats.TrafficlightThread;
 import sas.*;
 import sasio.Button;
@@ -56,18 +57,30 @@ public class Main  extends Thread {
 		GenerateAndMove.setTrafficLight(c, tLM);
 		ChangeTrafficLight.toggleTrafficLightsXY(c);
 		t.start();
+		
+		while(true) {
+			
 		CarModel carM = new CarModel();
 		carM.getCar();
 		Car car = GenerateAndMove.generateCar(c, carM);
 		
 		
+		ChangeStreetThread sT = new ChangeStreetThread(c, carM, car);
+		sT.start();
+		try {
+			TimeUnit.SECONDS.sleep(20);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sT.interrupt();
+		}
 		
-		System.out.println("test");
-		 while(true) {
+		 /*while(true) {
 			 //GenerateAndMove.setTrafficLight(c, tLM);
 				changeStreet(carM, car,c);
 				
-		 }
+		 }*/
 		
 		
 	}
@@ -80,9 +93,9 @@ public class Main  extends Thread {
 			e.printStackTrace();
 		}
 		if(car.getAtLine()) {
-			System.out.println("atline");
+			
 			if(car.getLane().getTrafficLight().get(0).getStatus()=="green") {
-			System.out.println("atline" + car.getLane().getDirection().get(0).getDirection());
+			
 			switch(car.getLane().getDirection().get(0).getDirection()) {
 			case "left":
 				if(car.getStreet().getOrientation()==car.getdest().getOrientation()) {
@@ -103,7 +116,7 @@ public class Main  extends Thread {
 				
 			}
 			car.setAtLine(false);
-			System.out.println("setfalse");
+			
 			}
 		}
 		

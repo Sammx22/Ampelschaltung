@@ -246,12 +246,12 @@ public class FindWayAtCrossing {
 	public static boolean changeStreetAtCrossing(Car car, Street destination) {
 		
 		if(car.getLane().getTrafficLight().get(0).getStatus()=="green") {
-			System.out.println("green");
+			
 			
 		car.setStreet(destination);
 		return true;
 		}else if(car.getLane().getTrafficLight().get(0).getStatus()=="red") {
-			System.out.println("red");
+		
 			return false;
 		}
 		return false;
