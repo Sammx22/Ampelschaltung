@@ -716,17 +716,9 @@ public class GenerateAndMove {
 		
 		//xp
 		case "XP":
-		for(int i = 0; i<100; i++) {
-		carM.getCar().move(-1.325, 0);
-		try {
-			TimeUnit.MILLISECONDS.sleep(10);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-		for(int i = 0; i<90; i++) {
-			carM.getCar().turn(-1);
+			
+			for(int i = 0; i<100; i++) {
+			carM.getCar().move(-1.325, 0);
 			try {
 				TimeUnit.MILLISECONDS.sleep(10);
 			} catch (InterruptedException e) {
@@ -734,17 +726,26 @@ public class GenerateAndMove {
 				e.printStackTrace();
 			}
 			}
-		for(int i = 0; i<120; i++) {
-			carM.getCar().move(0, 4);
-			try {
-				TimeUnit.MILLISECONDS.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			}
-			carM.getCar().setHidden(true);
-		break;
+			for(int i = 0; i<90; i++) {
+				carM.getCar().turn(-1);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+			for(int i = 0; i<120; i++) {
+				carM.getCar().move(0, 4);
+				try {
+					TimeUnit.MILLISECONDS.sleep(10);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				}
+				carM.getCar().setHidden(true);
+			break;
 		
 		case "XN":
 			for(int i = 0; i<100; i++) {

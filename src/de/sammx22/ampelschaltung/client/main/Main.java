@@ -10,51 +10,77 @@ import de.sammx22.ampelschaltung.client.algorithm.GenerateAndMove;
 import de.sammx22.ampelschaltung.client.models.CarModel;
 import de.sammx22.ampelschaltung.client.models.CrossingModel;
 import de.sammx22.ampelschaltung.client.models.TrafficLightModel;
+import de.sammx22.ampelschaltung.client.threats.TrafficlightThread;
 import sas.*;
 import sasio.Button;
 
 public class Main  extends Thread {
 
-	static Crossing c;
-	static TrafficLightModel tLM;
 	
-	public static Crossing getCrossing() {
-		return c;
-		
+	
+	TrafficLightModel ttLM;
+	Crossing tc;
+	CarModel tcarM;
+	Car tcar;
+
+	public Main(TrafficLightModel ttLM,Crossing tc,CarModel tcarM,Car tcar) {
+		this.ttLM = ttLM;
+		this.tc = tc;
+		this.tcarM=tcarM;
+		this.tcar = tcar;
 	}
+	
+	
+	
 	
 	public static void main(String[] args) {
 		
 		View v = new View(1920,1080,"Ampelsystem");
 		
 		CrossingModel cM = new CrossingModel();
-		CarModel carM = new CarModel();
-		tLM = new TrafficLightModel();
-		Main thread = new Main();
+		
+		TrafficLightModel tLM = new TrafficLightModel();
+		
+		
+	
 		cM.getSprite();
 		tLM.getXN();
 		tLM.getXP();
 		tLM.getYN();
 		tLM.getYP();
-		carM.getCar();
 		
 		
-		c = GenerateAndMove.generateCrossing();
-		thread.start();
-		Car car = GenerateAndMove.generateCar(c, carM);
-		ChangeTrafficLight.toggleTrafficLightsXY(c);
 		
-		while(true) {
-		
+		Crossing c = GenerateAndMove.generateCrossing();
+		TrafficlightThread t = new TrafficlightThread(tLM, c);
 		GenerateAndMove.setTrafficLight(c, tLM);
-		changeStreet(carM, car);
-		}
+		ChangeTrafficLight.toggleTrafficLightsXY(c);
+		t.start();
+		CarModel carM = new CarModel();
+		carM.getCar();
+		Car car = GenerateAndMove.generateCar(c, carM);
+		
+		
+		
+		System.out.println("test");
+		 while(true) {
+			 //GenerateAndMove.setTrafficLight(c, tLM);
+				changeStreet(carM, car,c);
+				
+		 }
+		
 		
 	}
 	
-	public static void changeStreet(CarModel carM, Car car) {
-		
-		while(car.getAtLine()) {
+	public static void changeStreet(CarModel carM, Car car, Crossing c) {
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(car.getAtLine()) {
+			System.out.println("atline");
 			if(car.getLane().getTrafficLight().get(0).getStatus()=="green") {
 			System.out.println("atline" + car.getLane().getDirection().get(0).getDirection());
 			switch(car.getLane().getDirection().get(0).getDirection()) {
@@ -64,12 +90,15 @@ public class Main  extends Thread {
 				}else {
 					GenerateAndMove.turnLeft(carM, car);
 				}
+				ChangeTrafficLight.toggleTrafficLightsXY(c);
 				break;
 			case "front":
 				GenerateAndMove.turnFront(carM, car);
+				ChangeTrafficLight.toggleTrafficLightsXY(c);
 				break;
 			case "right":
 				GenerateAndMove.turnRight(carM, car);
+				ChangeTrafficLight.toggleTrafficLightsXY(c);
 				break;
 				
 			}
@@ -80,21 +109,7 @@ public class Main  extends Thread {
 		
 	}
 	
-	public void run() {
-	    while(true) {
-	    	System.out.println("thread"+c.toString());
-	    	System.out.println("tlM"+tLM.toString());
-	    	ChangeTrafficLight.toggleTrafficLightsXY(getCrossing());
-	    	
-	    	
-	    	try {
-				TimeUnit.SECONDS.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	    }
-	  }
-	
+
+
 
 }
